@@ -18,6 +18,11 @@ typedef struct s_stack
 }	t_stack;
 
 
+static void swap(t_stack *stack);
+void	op_sa(t_stack **stack_a);
+void	op_sb(t_stack **stack_b);
+void	op_ss(t_stack **stack_a, t_stack **stack_b);
 
+void	ft_putstr(char *str);
 
 #endif
