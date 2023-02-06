@@ -1,7 +1,10 @@
 NAME = push_swap
 
 HDRS = push_swap.h
-SRCS = 
+SRCS = utils.c \
+	swap.c \
+	push.c \
+	rotate.c \
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
