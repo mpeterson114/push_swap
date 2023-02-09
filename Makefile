@@ -5,6 +5,8 @@ SRCS = utils.c \
 	swap.c \
 	push.c \
 	rotate.c \
+	rev_rotate.c \
+	fill_stack.c \
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra

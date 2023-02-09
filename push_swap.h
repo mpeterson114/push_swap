@@ -17,13 +17,6 @@ typedef struct s_stack
 	struct s_stack *next;
 }	t_stack;
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-}					t_list;
-
-
 static void swap(t_stack *stack);
 void	op_sa(t_stack **stack_a);
 void	op_sb(t_stack **stack_b);
@@ -34,10 +27,19 @@ void    op_ra(t_stack **stack_a);
 void    op_rb(t_stack **stack_b);
 void    op_rr(t_stack **stack_a, t_stack **stack_b);
 
+static void    rev_rotate(t_stack **stack);
+void op_rra(t_stack **stack_a);
+void op_rrb(t_stack **stack_b);
+void op_rrr(t_stack **stack_a, t_stack **stack_b);
+
 void    op_pa(t_stack **stack_a, t_stack **stack_b);
 void    op_pb(t_stack **stack_b, t_stack **stack_a);
 
 void	ft_putstr(char *str);
-t_list	*ft_lstlast(t_list *lst);
+t_stack	*stack_last(t_stack *stack);
+long int	ft_atoi(const char *str);
+void	*stack_add_back(t_stack **stack, t_stack *new);
+
+t_stack	*fill_values(int argc, char **argv);
 
 #endif

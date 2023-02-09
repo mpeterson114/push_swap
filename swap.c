@@ -33,3 +33,19 @@ void	op_ss(t_stack **stack_a, t_stack **stack_b)
 	ft_putstr("ss\n");
 }
 
+/*int main(void)
+{
+	t_stack *stack;
+
+	stack->value = 2;
+	stack->next->value = 5; 
+	stack->index = 1;
+	stack->next->index = 2;
+
+	swap(stack);
+	printf("%d\n", stack->value);
+	printf("%d\n", stack->index);
+	//printf("%d\n", stack->next->value);
+	//printf("%d\n", stack->next->index);
+	return 0;
+}*/
