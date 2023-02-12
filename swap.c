@@ -35,17 +35,34 @@ void	op_ss(t_stack **stack_a, t_stack **stack_b)
 
 /*int main(void)
 {
-	t_stack *stack;
+	//testing with t_stack struct modified in .h file 
+	//to only include value, index & next
+	t_stack *stack_1 = NULL;
+	t_stack *stack_2 = NULL;
+	t_stack *stack_3 = NULL;
 
-	stack->value = 2;
-	stack->next->value = 5; 
-	stack->index = 1;
-	stack->next->index = 2;
+	stack_1 = (t_stack *)malloc(sizeof(t_stack));
+	stack_2 = (t_stack *)malloc(sizeof(t_stack));
+	stack_3 = (t_stack *)malloc(sizeof(t_stack));
 
-	swap(stack);
-	printf("%d\n", stack->value);
-	printf("%d\n", stack->index);
-	//printf("%d\n", stack->next->value);
-	//printf("%d\n", stack->next->index);
+	stack_1->value = 2;
+	stack_1->index = 1;
+	stack_1->next = stack_2;
+
+	stack_2->value = 4;
+	stack_2->index = 2;
+	stack_2->next = stack_3;
+
+	stack_3->value = 6;
+	stack_3->index = 3;
+	stack_3->next = NULL;
+
+	op_sa(&stack_1);
+	printf("%d\n", stack_1->value);
+	printf("%d\n", stack_1->index);
+	printf("%d\n", stack_2->value);
+	printf("%d\n", stack_2->index);
+	printf("%d\n", stack_2->next->value);
+	printf("%d\n", stack_2->next->index);
 	return 0;
 }*/

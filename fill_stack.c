@@ -26,3 +26,11 @@ t_stack	*fill_values(int argc, char **argv)
 	return (stack_a);
 }
 
+void	assign_index(t_stack *stack_a, int stack_size)
+{
+	t_stack *top;
+	t_stack *temp;
+	int value;
+
+
+}

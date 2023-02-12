@@ -10,10 +10,10 @@ typedef struct s_stack
 {
     int	value;
 	int	index;
-	int	position;
-	int	target_pos;
-	int	moves_a;
-	int	moves_b;
+	//int	position;
+	//int	target_pos;
+	//int	moves_a;
+	//int	moves_b;
 	struct s_stack *next;
 }	t_stack;
 
@@ -22,7 +22,7 @@ void	op_sa(t_stack **stack_a);
 void	op_sb(t_stack **stack_b);
 void	op_ss(t_stack **stack_a, t_stack **stack_b);
 
-void    rotate(t_stack **stack);
+static void    rotate(t_stack **stack);
 void    op_ra(t_stack **stack_a);
 void    op_rb(t_stack **stack_b);
 void    op_rr(t_stack **stack_a, t_stack **stack_b);
@@ -38,7 +38,7 @@ void    op_pb(t_stack **stack_b, t_stack **stack_a);
 void	ft_putstr(char *str);
 t_stack	*stack_last(t_stack *stack);
 long int	ft_atoi(const char *str);
-void	*stack_add_back(t_stack **stack, t_stack *new);
+void	stack_add_back(t_stack **stack, t_stack *new);
 
 t_stack	*fill_values(int argc, char **argv);
 
