@@ -56,10 +56,10 @@ t_stack	*stack_new(long int value)
 		return (NULL);
 	new->value = value;
 	new->index = 0;
-	//new->position = 0;
-	//new->target_pos = 0;
-	//new->moves_a = 0;
-	//new->moves_b = 0;
+	new->position = 0;
+	new->target_pos = 0;
+	new->moves_a = 0;
+	new->moves_b = 0;
 	new->next = NULL;
 	return (new);
 }
