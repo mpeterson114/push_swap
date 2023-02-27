@@ -30,8 +30,7 @@ long int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while (str[i] == ' ' || str[i] == '\n' || str[i] == '\v' || 
-		str[i] == '\t' || str[i] == '\f' || str[i] == '\r')
+	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
 		i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
@@ -47,7 +46,7 @@ long int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
-t_stack	*stack_new(long int value)
+t_stack	*stack_new(int value)
 {
 	t_stack	*new;
 
@@ -56,10 +55,10 @@ t_stack	*stack_new(long int value)
 		return (NULL);
 	new->value = value;
 	new->index = 0;
-	new->position = 0;
-	new->target_pos = 0;
-	new->moves_a = 0;
-	new->moves_b = 0;
+	new->position = -1;
+	new->target_pos = -1;
+	new->moves_a = -1;
+	new->moves_b = -1;
 	new->next = NULL;
 	return (new);
 }
@@ -79,3 +78,42 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 	temp->next = new;
 }
 
+void	free_stacks(t_stack **stack)
+{
+	t_stack *temp;
+
+	if (!stack || !*stack)
+		return ;
+	while (*stack)
+	{
+		temp = (*stack)->next;
+		free(*stack);
+		*stack = temp;
+	}
+	*stack = NULL;
+}
+
+void	error(t_stack **stack_a, t_stack **stack_b)
+{
+	if (!stack_a || !*stack_a)
+		free_stacks(stack_a);
+	if (!stack_b || !*stack_b)
+		free_stacks(stack_b);
+	write(2, "Error\n", 6);
+	exit (1);
+}
+
+int	stack_count(t_stack *stack)
+{
+	int	count;
+
+	if (!stack)
+		return (0);
+	count = 1;
+	while (stack->next != NULL)
+	{
+		stack = stack->next;
+		count++;
+	}
+	return (count);
+}
