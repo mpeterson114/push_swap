@@ -59,4 +59,7 @@ int	input_checks(char **argv);
 t_stack	*fill_values(int argc, char **argv);
 void	assign_index(t_stack *stack_a, int stack_size);
 
+static int	is_sorted(t_stack *stack);
+static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size);
+
 #endif
