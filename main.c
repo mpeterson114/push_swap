@@ -1,5 +1,27 @@
 #include "push_swap.h"
 
+static int	is_sorted(t_stack *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->next->value < stack->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size)
+{
+	if (stack_size == 2 && !is_sorted(stack_a))
+		op_sa;
+	else if (stack_size == 3)
+		sort_3(stack_a);
+
+}
+
+
+
 int	main(int argc, char **argv)
 {
 	t_stack	*stack_a;
