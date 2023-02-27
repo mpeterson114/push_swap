@@ -29,31 +29,30 @@ t_stack	*fill_values(int argc, char **argv)
 
 void	assign_index(t_stack *stack_a, int stack_size)
 {
-	t_stack	*ptr;
-	t_stack	*highest;
-	int		value;
+	t_stack *temp;
+	t_stack *highest;
+	int value;
 
 	while (--stack_size > 0)
 	{
-		ptr = stack_a;
 		value = INT_MIN;
+		temp = stack_a;
 		highest = NULL;
-		while (ptr)
+		while (temp)
 		{
-			if (ptr->value == INT_MIN && ptr->index == 0)
-				ptr->index = 1;
-			if (ptr->value > value && ptr->index == 0)
+			if (temp->value == value && temp->index == 0)
+				temp->index = 1;
+			else if (temp->value > value && temp->index == 0)
 			{
-				value = ptr->value;
-				highest = ptr;
-				ptr = stack_a;
+				value = temp->value;
+				highest = temp;
+				temp = temp->next;
 			}
-			else
-				ptr = ptr->next;
+			temp = temp->next;
 		}
 		if (highest != NULL)
 			highest->index = stack_size;
+		printf("%d, ", highest->index);
+		printf("%d\n", highest->value);
 	}
-	//printf("%d, ", highest->index);
-	//printf("%d\n", highest->value);
 }
