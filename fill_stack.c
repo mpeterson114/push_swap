@@ -13,18 +13,14 @@ t_stack	*fill_values(int argc, char **argv)
 	{
 		nb = ft_atoi(argv[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
-		{
-			write(2, "Error\n", 6);
-			exit(1);
-			//needs error function freeing both stacks
-		}
-		if (argc == 2)
-			stack_a = stack_new(nb);
+			error(&stack_a, NULL);
+		if (i == 1)
+			stack_a = stack_new((int)nb);
 		else
-			stack_add_back(&stack_a, stack_new(nb));
+			stack_add_back(&stack_a, stack_new((int)nb));
+		i++;
 	}
 	return (stack_a);
-	//printf("%d\n", stack_a->value);
 }
 
 void	assign_index(t_stack *stack_a, int stack_size)
@@ -33,14 +29,14 @@ void	assign_index(t_stack *stack_a, int stack_size)
 	t_stack *highest;
 	int value;
 
-	while (--stack_size > 0)
+	while (stack_size-- > 0)
 	{
 		value = INT_MIN;
 		temp = stack_a;
 		highest = NULL;
 		while (temp)
 		{
-			if (temp->value == value && temp->index == 0)
+			if (temp->value == INT_MIN && temp->index == 0)
 				temp->index = 1;
 			else if (temp->value > value && temp->index == 0)
 			{
@@ -48,11 +44,10 @@ void	assign_index(t_stack *stack_a, int stack_size)
 				highest = temp;
 				temp = temp->next;
 			}
-			temp = temp->next;
+			else
+				temp = temp->next;
 		}
 		if (highest != NULL)
 			highest->index = stack_size;
-		printf("%d, ", highest->index);
-		printf("%d\n", highest->value);
 	}
 }
