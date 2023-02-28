@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+/*swaps first two elements in a stack (functions below for stack A, B or both)*/
 static void swap(t_stack *stack)
 {
    int  temp;

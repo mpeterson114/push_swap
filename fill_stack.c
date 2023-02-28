@@ -1,5 +1,8 @@
 #include "push_swap.h"
 
+/*fills stack A with command line arguments entered. argv[i] char value 
+is converted to stack value int nb using atoi. nb value cannot exceed INT_MIN or INT_MAX. 
+A new node is created with nb as its value*/
 t_stack	*fill_values(int argc, char **argv)
 {
 	long int    nb;
@@ -23,6 +26,9 @@ t_stack	*fill_values(int argc, char **argv)
 	return (stack_a);
 }
 
+/*assigns an index to each stack element based on value. facilitates comparison 
+and ordering of stack elements during sorting as comparing 
+actual values may be more complicated if not adjacent*/
 void	assign_index(t_stack *stack_a, int stack_size)
 {
 	t_stack *temp;

@@ -1,17 +1,20 @@
 #include "push_swap.h"
 
+/*shifts down all elements of a stack (functions below for stack A, B or both) by 1. 
+Last element becomes the first*/
 static void    rev_rotate(t_stack **stack)
 {
     t_stack *temp;
+    t_stack *temp2;
     t_stack *last;
     t_stack *before_last;
 
-    last = ft_lstlast(*stack);
+    last = stack_last(*stack);
+    before_last = stack_second_to_last(*stack);
     temp = *stack;
-    while (before_last->next->next != NULL)
-        before_last = before_last->next;
     *stack = last;
     (*stack)->next = temp;
+    temp2->next = NULL;
     before_last->next = NULL;
 }
 

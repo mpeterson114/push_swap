@@ -40,6 +40,7 @@ void    op_pb(t_stack **stack_b, t_stack **stack_a);
 
 void	ft_putstr(char *str);
 t_stack	*stack_last(t_stack *stack);
+t_stack	*stack_second_to_last(t_stack *stack);
 long int	ft_atoi(const char *str);
 void	stack_add_back(t_stack **stack, t_stack *new);
 t_stack	*stack_new(int value);
@@ -59,7 +60,9 @@ int	input_checks(char **argv);
 t_stack	*fill_values(int argc, char **argv);
 void	assign_index(t_stack *stack_a, int stack_size);
 
-static int	is_sorted(t_stack *stack);
+int	is_sorted(t_stack *stack);
 static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size);
+
+void    sort_three(t_stack **stack_a);
 
 #endif

@@ -16,7 +16,7 @@ int is_sign(char c)
     return (0);
 }
 
-/*compares two strings by ascii values. If strings are identical returns 0, 
+/*compares two strings by their ascii values. If strings are identical returns 0, 
 otherwise returns a non-zero number*/
 int	strcmp(const char *s1, const char *s2)
 {

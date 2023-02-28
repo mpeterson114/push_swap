@@ -9,6 +9,7 @@ SRCS = utils.c \
 	fill_stack.c \
 	input_checks.c \
 	utils_input_checks.c \
+	sort_three.c \
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
