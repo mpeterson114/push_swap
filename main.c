@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-static int	is_sorted(t_stack *stack)
+int	is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
 	{
@@ -13,14 +13,11 @@ static int	is_sorted(t_stack *stack)
 
 static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size)
 {
-	if (stack_size == 2 && !is_sorted(stack_a))
-		op_sa;
+	if ((stack_size == 2) && !is_sorted(*stack_a))
+		op_sa(stack_a);
 	else if (stack_size == 3)
-		sort_3(stack_a);
-
+		sort_three(stack_a);
 }
-
-
 
 int	main(int argc, char **argv)
 {
@@ -36,6 +33,7 @@ int	main(int argc, char **argv)
 	stack_a = fill_values(argc, argv);
 	stack_size = stack_count(stack_a);
 	assign_index(stack_a, stack_size + 1);
+	push_swap(&stack_a, &stack_b, stack_size);
 	while (stack_a)
 	{
 		printf("%d ", stack_a->value);

@@ -53,6 +53,8 @@ static int  zero_check(char *argv)
     return (1);
 }
 
+/*coordinates checker functions; ensures that there are no duplicates (including 
+zero variations) and that all arguments are valid number values*/
 int	input_checks(char **argv)
 {
 	int	i;

@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+/*pushes element at top of stack B to the top of stack A*/
 void    op_pa(t_stack **stack_a, t_stack **stack_b)
 {
     t_stack *temp; 
@@ -13,6 +14,7 @@ void    op_pa(t_stack **stack_a, t_stack **stack_b)
     ft_putstr("pa\n");
 }
 
+/*pushes element at top of stack A to the top of stack B*/
 void    op_pb(t_stack **stack_b, t_stack **stack_a)
 {
     t_stack *temp; 

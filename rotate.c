@@ -1,5 +1,7 @@
 #include "push_swap.h"
 
+/*shifts up all elements of a stack (functions below for stack A, B or both) by 1. 
+First element becomes the last*/
 static void    rotate(t_stack **stack)
 {
     t_stack *temp;

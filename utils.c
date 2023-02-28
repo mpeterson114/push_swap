@@ -1,5 +1,6 @@
 #include "push_swap.h"
 
+/*writes character string to standard output*/
 void	ft_putstr(char *str)
 {
 	int	i;
@@ -12,6 +13,7 @@ void	ft_putstr(char *str)
     }
 }
 
+/*finds last element in linked list*/
 t_stack	*stack_last(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
@@ -19,6 +21,16 @@ t_stack	*stack_last(t_stack *stack)
 	return (stack);
 }
 
+/*finds second-to-last element in linked list*/
+t_stack	*stack_second_to_last(t_stack *stack)
+{
+	while (stack && stack->next != NULL && stack->next->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
+/*converts character to int value; used to fill stack_a with 
+command line arguments*/
 long int	ft_atoi(const char *str)
 {
 	int	i;
@@ -46,6 +58,7 @@ long int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
+/*creates new node*/
 t_stack	*stack_new(int value)
 {
 	t_stack	*new;
@@ -63,6 +76,7 @@ t_stack	*stack_new(int value)
 	return (new);
 }
 
+/*adds new node to end of linked list*/
 void	stack_add_back(t_stack **stack, t_stack *new)
 {
 	t_stack *temp;
@@ -78,6 +92,7 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 	temp->next = new;
 }
 
+/*used to free both stacks a and b*/
 void	free_stacks(t_stack **stack)
 {
 	t_stack *temp;
@@ -93,6 +108,8 @@ void	free_stacks(t_stack **stack)
 	*stack = NULL;
 }
 
+/*frees both stacks, writes "Error" message to standard error and 
+exits the program*/
 void	error(t_stack **stack_a, t_stack **stack_b)
 {
 	if (!stack_a || !*stack_a)
@@ -103,6 +120,7 @@ void	error(t_stack **stack_a, t_stack **stack_b)
 	exit (1);
 }
 
+/*finds number of elements in a stack*/
 int	stack_count(t_stack *stack)
 {
 	int	count;
