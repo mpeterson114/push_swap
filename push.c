@@ -28,7 +28,7 @@ void    op_pb(t_stack **stack_b, t_stack **stack_a)
     ft_putstr("pb\n");
 }
 
-int main(void)
+/*int main(void)
 {
     //testing with t_stack struct modified in .h file 
 	//to only include value, index & next
@@ -80,4 +80,4 @@ int main(void)
 	printf("%d\n", first_b->next->value);
 	//printf("%d\n", stack->next->index);
 	return 0;
-}
+}*/
