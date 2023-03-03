@@ -66,7 +66,7 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size);
 void    sort_three(t_stack **stack_a);
 
 int highest_index(t_stack *stack);
-void    keep_three(t_stack **stack_a, t_stack **stack_b);
+void	keep_three(t_stack **stack_a, t_stack **stack_b);
 
 
 //void print_list(t_stack **head);      ----->practice
