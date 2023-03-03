@@ -17,6 +17,8 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size)
 		op_sa(stack_a);
 	else if (stack_size == 3)
 		sort_three(stack_a);
+	else
+		keep_three(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -38,6 +40,8 @@ int	main(int argc, char **argv)
 	{
 		printf("%d ", stack_a->value);
 		printf("%d\n", stack_a->index);
+		/*printf("%d ", stack_b->value);
+		printf("%d\n", stack_b->index);*/
 		stack_a = stack_a->next;
 	}
 	//free(&stack_a);
