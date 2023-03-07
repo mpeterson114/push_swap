@@ -68,6 +68,10 @@ void    sort_three(t_stack **stack_a);
 int highest_index(t_stack *stack);
 void	keep_three(t_stack **stack_a, t_stack **stack_b);
 
+void    assign_position(t_stack *stack, int stack_size);
+int smallest_i_position(t_stack *stack, int target_pos);
+
+
 
 //void print_list(t_stack **head);      ----->practice
 
