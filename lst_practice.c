@@ -10,7 +10,7 @@ void print_list(t_stack **head) {
     }
 }
 
-/* Without using double pointer:
+/* Using single pointer:
 void print_list(t_stack * head) 
 {
     t_stack * current = head;
@@ -30,6 +30,6 @@ int main()
     head->next = (t_stack *) malloc(sizeof(t_stack));
     head->next->value = 2;
     head->next->next = NULL;
-    print_list(&head);     //calling by reference with double pointer, no & if using single pointer
+    print_list(&head);     //calling by reference with double pointer, no '&' if using single pointer
     return 0;
 }
