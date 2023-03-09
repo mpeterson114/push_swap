@@ -70,8 +70,8 @@ t_stack	*stack_new(int value)
 	new->index = 0;
 	new->position = -1;
 	new->target_pos = -1;
-	new->moves_a = -1;
-	new->moves_b = -1;
+	new->cost_a = -1;
+	new->cost_b = -1;
 	new->next = NULL;
 	return (new);
 }

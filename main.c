@@ -36,8 +36,19 @@ int	main(int argc, char **argv)
 	stack_size = stack_count(stack_a);
 	assign_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);
-	assign_position(stack_a);
 	assign_target_positions(&stack_a, &stack_b);
+	while (stack_a)
+	{
+		printf("%d ", stack_a->value);
+		printf("%d ", stack_a->index);
+		printf("%d\n", stack_a->position);
+		printf("%d ", stack_b->value);
+		printf("%d ", stack_b->index);
+		printf("%d ", stack_b->position);
+		printf("%d\n", stack_b->target_pos);
+		stack_a = stack_a->next;
+		stack_b = stack_b->next;
+	}
 	//printf("%d ", stack_b->position);
 	/*while (stack_a && stack_b)
 	{

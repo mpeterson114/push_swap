@@ -15,8 +15,8 @@ typedef struct s_stack
 	int	index;
 	int	position;
 	int	target_pos;
-	int	moves_a;
-	int	moves_b;
+	int	cost_a;
+	int	cost_b;
 	struct s_stack *next;
 }	t_stack;
 
