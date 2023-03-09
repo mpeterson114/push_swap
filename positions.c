@@ -69,33 +69,36 @@ int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos)
 
 void    assign_target_positions(t_stack **stack_a, t_stack **stack_b)
 {
+    t_stack *temp;
     int target_position;
 
-    target_position = 0;
+    temp = *stack_b;
     assign_position(*stack_a);
     assign_position(*stack_b);
-    while (*stack_b)
+    target_position = 0;
+    while (temp)
     {
         target_position = find_targ_pos(stack_a, stack_b, target_position);
-        (*stack_b)->target_pos = target_position;
-        *stack_b = (*stack_b)->next;
+        temp->target_pos = target_position;
+        temp = temp->next;
     }
-    printf("%d\n", target_position);
+    
 }
 
 /*int main()
 {
     t_stack *stack_a = NULL;
     t_stack *temp = NULL;
-    //t_stack *stack_b = NULL;
-    int position;
+    t_stack *stack_b = NULL;
+    int target_position;
 
     stack_a = (t_stack *)malloc(sizeof(t_stack));
-    if (!stack_a)
+    stack_b = (t_stack *)malloc(sizeof(t_stack));
+    if (!stack_a || !stack_b)
         return 0;
-    temp = stack_a;
-    position = temp->position;
-    //stack_b = (t_stack *)malloc(sizeof(t_stack));
+    temp = stack_b;
+    target_position = temp->target_pos;
+    
 
     stack_a->value = 9;
     stack_a->index = 4;
@@ -114,6 +117,7 @@ void    assign_target_positions(t_stack **stack_a, t_stack **stack_b)
     stack_a->next->next->next->position = 3;
     stack_a->next->next->next->next = NULL;
 
+    assign_target_positions(&stack_a, &stack_b, target_position)
     printf("%d ", smallest_i_position(&stack_a, position));
     while (stack_a)
     {
