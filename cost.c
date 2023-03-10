@@ -1,39 +1,29 @@
 #include "push_swap.h"
 
-int b_cost(t_stack **stack_b)
+void    assign_cost(t_stack **stack_a, t_stack **stack_b)
 {
-    int stack_b_size;
-    int cost_b;
-    t_stack *temp;
+    int size_a;
+    int size_b;
+    t_stack *temp_a;
+    t_stack *temp_b;
 
-    stack_b_size = stack_count(stack_b);
-    cost_b = 0;
-    temp = *stack_b;
-    while (temp)
+    size_a = stack_count(*stack_a);
+    size_b = stack_count(*stack_b);
+    temp_a = *stack_a;
+    temp_b = *stack_b;
+    while (temp_b)
     {
-        if (temp->position < stack_b_size / 2)
-        {
-            while (temp->position != 0)
-            {
-                op_rb;
-                cost_b++;
-            }
-        }
-        else
-        {
-            while (temp->position != 0)
-            {
-                op_rrb;
-                cost_b++;
-            }
-            cost_b *= -1;  
-        }
-        temp = temp->next; 
+        temp_b->cost_b = temp_b->position;
+        if (temp_b->position > size_b / 2)
+            temp_b->cost_b = (size_b - temp_b->position) * -1;
+        temp_b->cost_a = temp_b->target_pos;
+        if (temp_b->target_pos > size_a / 2)
+            temp_b->cost_a = (size_a - temp_b->target_pos) * -1;
+        temp_b = temp_b->next; 
     }
-    return (cost_b);
 }
 
-int main()
+/*int main()
 {
     //t_stack *stack_a = NULL;
     t_stack *temp = NULL;
@@ -74,4 +64,4 @@ int main()
         stack_a = stack_a->next;
     }
     return 0;
-}
+}*/
