@@ -135,3 +135,10 @@ int	stack_count(t_stack *stack)
 	}
 	return (count);
 }
+
+int	abs_val(int nb)
+{
+	if (nb < 0)
+		nb *= -1;
+	return (nb);
+}

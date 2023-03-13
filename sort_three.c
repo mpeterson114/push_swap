@@ -2,6 +2,8 @@
 int highest_index(t_stack *stack)
 {
     int index;
+
+    index = 0;
     while (stack)
     {
         stack = stack->next;
