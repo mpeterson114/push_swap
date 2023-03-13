@@ -9,6 +9,7 @@ static void    rev_rotate(t_stack **stack)
     t_stack *last;
     t_stack *before_last;
 
+    temp2 = NULL;
     last = stack_last(*stack);
     before_last = stack_second_to_last(*stack);
     temp = *stack;

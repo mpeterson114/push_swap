@@ -3,29 +3,29 @@
 void    keep_three(t_stack **stack_a, t_stack **stack_b)
 {
     int stack_a_count;
-    int highest;
+    int pushed;
     int i;
 
     stack_a_count = stack_count(*stack_a);
-    highest = stack_a_count;
+    pushed = 0;
     i = 1;
-    while (*stack_a && i <= highest && stack_a_count >= 3)
+    //stack_a_count value remains constant throughout fxn, even if elements are pushed to B
+    while (stack_a_count > 6 && i <= stack_a_count && pushed < stack_a_count / 2)
     {
-        if ((*stack_a)->index <= (highest / 2))
+        if ((*stack_a)->index <= (stack_a_count / 2))
         {
             op_pb(stack_b, stack_a);
-            stack_a_count--;
+            pushed++;
         } 
-        else if ((*stack_a)->index > (highest / 2))
+        else
             op_ra(stack_a);
         i++;     
     }
-    while (stack_a_count > 3)
+    while (stack_a_count - pushed > 3)
     {
         op_pb(stack_b, stack_a);
-        stack_a_count--;
+        pushed++;
     }
-    sort_three(stack_a);
 }
 
 /*int main ()
