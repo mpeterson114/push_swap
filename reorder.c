@@ -3,37 +3,51 @@
 static void rev_rotate_both(t_stack **stack_a, t_stack **stack_b, int *cost_a, int *cost_b)
 {
     while (*cost_a < 0 && *cost_b < 0)
-        op_rrr(stack_a, stack_b);
         (*cost_a)++;
         (*cost_b)++;
+        op_rrr(stack_a, stack_b);
 }
 
 static void rotate_both(t_stack **stack_a, t_stack **stack_b, int *cost_a, int *cost_b)
 {
     while (*cost_a > 0 && *cost_b > 0)
-        op_rr(stack_a, stack_b);
         (*cost_a)--;
         (*cost_b)--;
+        op_rr(stack_a, stack_b);
 }
 
 static void a_only(t_stack **stack_a, int *cost_a)
 {
-    while (*cost_a > 0)
-        op_ra(stack_a);
-        (*cost_a)--;
-    while (*cost_a < 0)
-        op_rra(stack_a);
-        (*cost_a)++;
+    while (*cost_a)
+    {
+        if (*cost_a > 0)
+        {
+            op_ra(stack_a);
+            (*cost_a)--;
+        } 
+        else if (*cost_a < 0)
+        {
+            op_rra(stack_a);
+            (*cost_a)++;
+        } 
+    } 
 }
 
 static void b_only(t_stack **stack_b, int *cost_b)
 {
-    while (*cost_b > 0)
-        op_rb(stack_b);
-        (*cost_b)--;
-    while (*cost_b < 0)
-        op_rrb(stack_b);
-        (*cost_b)++;
+    while (*cost_b)
+    {
+        if (*cost_b > 0)
+        {
+            op_rb(stack_b);
+            (*cost_b)--;
+        }
+        else if (*cost_b < 0)
+        {
+            op_rrb(stack_b);
+            (*cost_b)++;
+        } 
+    }
 }
 
 void    reorder(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b)

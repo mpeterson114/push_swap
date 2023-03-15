@@ -18,7 +18,7 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size)
 	else if (stack_size == 3)
 		sort_three(stack_a);
 	else
-		keep_three(stack_a, stack_b);
+		big_sort(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -36,39 +36,13 @@ int	main(int argc, char **argv)
 	stack_size = stack_count(stack_a);
 	assign_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);
-	assign_target_positions(&stack_a, &stack_b);
-	assign_cost(&stack_a, &stack_b);
-	while (stack_a && stack_b)
+	while (stack_a)
 	{
 		printf("%d ", stack_a->value);
-		printf("%d ", stack_a->index);
-		printf("%d\n", stack_a->position);
-		printf ("\n");
-		printf("%d ", stack_b->value);
-		printf("%d ", stack_b->index);
-		printf("%d ", stack_b->position);
-		printf("%d ", stack_b->target_pos);
-		printf("%d ", stack_b->cost_a);
-		printf("%d\n ", stack_b->cost_b);
-		stack_a = stack_a->next;
-		stack_b = stack_b->next;
-	}
-	find_cheapest(&stack_b);
-	/*while (stack_a)
-	{
-		printf("%d\n ", stack_a->value);
+		printf("%d\n", stack_a->index);
 		printf ("\n");
 		stack_a = stack_a->next;
 	}
-		printf("%d ", stack_b->value);
-		printf("%d ", stack_b->index);
-		printf("%d ", stack_b->position);
-		printf("%d ", stack_b->target_pos);
-		printf("%d ", stack_b->cost_a);
-		printf("%d\n ", stack_b->cost_b);
-		printf("\n");*/
-		//stack_a = stack_a->next;
-		//stack_b = stack_b->next;
 	//free(&stack_a);
 	//free(&stack_b);
     return 0;
