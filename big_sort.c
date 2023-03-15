@@ -28,6 +28,57 @@ void    keep_three(t_stack **stack_a, t_stack **stack_b)
     }
 }
 
+void    shift_stack_a(t_stack **stack_a)
+{
+    int stack_size;
+    int smallest_pos;
+
+    stack_size = stack_count(*stack_a);
+    smallest_pos = smallest_i_position(*stack_a);
+    if ((*stack_a)->index > stack_size / 2)
+    {
+        while (smallest_pos > 0)
+        {
+            op_rra(stack_a);
+            smallest_pos--;
+        }
+    }
+    else if ((*stack_a)->index <= stack_size / 2)
+    {
+        while (smallest_pos >= 0)
+        {
+            op_ra(stack_a);
+            smallest_pos--;
+        }        
+    }       
+}
+
+void    big_sort(t_stack **stack_a, t_stack **stack_b)
+{
+    keep_three(stack_a, stack_b);
+    sort_three(stack_a);
+    /*while (*stack_a)
+    {
+        
+        printf("%d ", (*stack_a)->value);
+        printf("%d\n", (*stack_a)->index);
+        printf("\n");
+        *stack_a = (*stack_a)->next;
+    }*/
+    while (*stack_b)
+    {
+        assign_target_positions(stack_a, stack_b);
+        assign_cost(stack_a, stack_b);
+        /*printf("%d ", (*stack_b)->position);
+        printf("%d ", (*stack_b)->target_pos);
+        printf("%d ", (*stack_b)->cost_a);
+        printf("%d\n", (*stack_b)->cost_b);*/
+        find_cheapest(stack_a, stack_b);
+    }
+    if (!is_sorted(*stack_a))
+        shift_stack_a(stack_a);
+}
+
 /*int main ()
 {
     t_stack *stack_a = NULL;

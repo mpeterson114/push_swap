@@ -1,13 +1,14 @@
 #include "push_swap.h"
-int highest_index(t_stack *stack)
+static int highest_index(t_stack *stack)
 {
     int index;
 
-    index = 0;
+    index = stack->index;
     while (stack)
     {
+        if (stack->index > index)
+            index = stack->index;
         stack = stack->next;
-        index++;
     }
     return (index);
 }
@@ -17,16 +18,17 @@ int highest_index(t_stack *stack)
 -If 3rd index is in 2nd position, either needs rra or rra + sa
 -Will enter into final 'if' only if still not sorted 
 (only case would be indices remaining in [2] [1] [3] order)*/
-void    sort_three(t_stack **stack_a)
+void    sort_three(t_stack **stack)
 {
-    int highest = highest_index(*stack_a);
-    if (is_sorted(*stack_a))
+    int highest;
+    
+    if (is_sorted(*stack))
         return ;
-    if ((*stack_a)->index == highest)
-        op_ra(stack_a);
-    else if ((*stack_a)->next->index == highest)
-        op_rra(stack_a);
-    if ((*stack_a)->next->index < (*stack_a)->index)
-        op_sa(stack_a);
-    return ;
+    highest = highest_index(*stack);
+    if ((*stack)->index == highest)
+        op_ra(stack);
+    else if ((*stack)->next->index == highest)
+        op_rra(stack);
+    if ((*stack)->next->index < (*stack)->index)
+        op_sa(stack);
 }

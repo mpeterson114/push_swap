@@ -5,17 +5,14 @@ Last element becomes the first*/
 static void    rev_rotate(t_stack **stack)
 {
     t_stack *temp;
-    t_stack *temp2;
     t_stack *last;
     t_stack *before_last;
 
-    temp2 = NULL;
     last = stack_last(*stack);
     before_last = stack_second_to_last(*stack);
     temp = *stack;
     *stack = last;
     (*stack)->next = temp;
-    temp2->next = NULL;
     before_last->next = NULL;
 }
 

@@ -1,27 +1,28 @@
 #include "push_swap.h"
 
-void    assign_position(t_stack *stack)
+void    assign_position(t_stack **stack)
 {
     int pos;
     t_stack *temp;
 
     pos = 0;
-    temp = stack;
+    temp = *stack;
     while (temp)
     {
         temp->position = pos;
-        pos++;
         temp = temp->next;
+        pos++;
     }
 }
 
 
-int smallest_i_position(t_stack *stack, int lowest_pos)
+int smallest_i_position(t_stack *stack)
 {
     t_stack *temp;
+    int lowest_pos;
 
     temp = stack;
-    assign_position(stack);
+    assign_position(&stack);
     lowest_pos = temp->position;
     while (temp)
     {
@@ -73,8 +74,8 @@ void    assign_target_positions(t_stack **stack_a, t_stack **stack_b)
     int target_position;
 
     temp = *stack_b;
-    assign_position(*stack_a);
-    assign_position(*stack_b);
+    assign_position(stack_a);
+    assign_position(stack_b);
     target_position = 0;
     while (temp)
     {
