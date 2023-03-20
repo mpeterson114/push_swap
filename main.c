@@ -43,7 +43,7 @@ int	main(int argc, char **argv)
 		printf ("\n");
 		stack_a = stack_a->next;
 	}
-	//free(&stack_a);
-	//free(&stack_b);
+	free_stacks(&stack_a);
+	free_stacks(&stack_b);
     return 0;
 }
