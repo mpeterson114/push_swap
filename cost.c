@@ -4,12 +4,10 @@ void    assign_cost(t_stack **stack_a, t_stack **stack_b)
 {
     int size_a;
     int size_b;
-    t_stack *temp_a;
     t_stack *temp_b;
 
     size_a = stack_count(*stack_a);
     size_b = stack_count(*stack_b);
-    temp_a = *stack_a;
     temp_b = *stack_b;
     while (temp_b)
     {

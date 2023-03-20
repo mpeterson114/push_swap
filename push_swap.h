@@ -63,7 +63,7 @@ void	keep_three(t_stack **stack_a, t_stack **stack_b);
 
 void    assign_position(t_stack **stack);
 int smallest_i_position(t_stack *stack);
-int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos);
+//int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos);
 void    assign_target_positions(t_stack **stack_a, t_stack **stack_b);
 
 void    assign_cost(t_stack **stack_a, t_stack **stack_b);
@@ -73,8 +73,6 @@ void    find_cheapest(t_stack **stack_a, t_stack **stack_b);
 void    reorder(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
 
 void    big_sort(t_stack **stack_a, t_stack **stack_b);
-
-void    shift_stack_a(t_stack **stack_a);
 
 //void print_list(t_stack **head);      ----->practice
 

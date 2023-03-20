@@ -15,7 +15,6 @@ void    assign_position(t_stack **stack)
     }
 }
 
-
 int smallest_i_position(t_stack *stack)
 {
     t_stack *temp;
@@ -37,7 +36,7 @@ int smallest_i_position(t_stack *stack)
     return (lowest_pos); 
 }
 
-int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos)
+static int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos)
 {
     int target_index;
     t_stack *temp;
