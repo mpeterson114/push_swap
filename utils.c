@@ -13,6 +13,16 @@ void	ft_putstr(char *str)
     }
 }
 
+int	ft_strlen(char *s)
+{
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return(i);
+}
+
 /*finds last element in linked list*/
 t_stack	*stack_last(t_stack *stack)
 {

@@ -1,77 +1,37 @@
 #include "push_swap.h"
 
-/*checks that argument is a number. '+' and '-' are accepted. If is a number returns 1, 
-if not a number returns 0*/
-static int  number_check(char *argv)
+/*ensures that all arguments are valid number values; allows for + and -. If a valid number value returns 1, if not returns 0 */
+int	input_checks(char *str)
 {
-    int i;
+	int i;
 
 	i = 0;
-    if (is_sign(argv[i]) && argv[i + 1] != '\0')
+    if (is_sign(str[i]) && str[i + 1] != '\0')
         i++;
-    while (argv[i] && is_digit(argv[i]))
+    while (str[i] && is_digit(str[i]))
         i++;
-    if (!is_digit(argv[i]) && argv[i] != '\0')
+    if (!is_digit(str[i]) && str[i] != '\0')
         return (0);
     return (1);
 }
 
 /*checks for duplicates in arguments-if found returns 1, if no duplicates are found returns 0*/
-static int  duplicate_check(char **argv)
+int  duplicate_check(t_stack *stack)
 {
-    int i;
-    int j;
+    t_stack *tmp;
+    t_stack *tmp2;
 
-	i = 1;
-    while (argv[i])
+	tmp = stack;
+    while (tmp)
 	{
-		j = 1;
-		while (argv[j])
+		tmp2 = tmp->next;
+		while (tmp2)
 		{
-			if (j != i && !strcmp(argv[i], argv[j]))
+			if (tmp->value == tmp2->value)
 				return (1);
-			j++;
+			tmp2 = tmp2->next;
 		}
-		i++;
+		tmp = tmp->next;
 	}
 	return (0);
-}
-
-/*checks if argument is a zero. counts +0, -0, 0 as well as 000000 -0000 +000000 etc as zero values. 
-Returns 1 if argument is a variation of zero, returns 0 if not zero value (e.g., 00004)*/
-static int  zero_check(char *argv)
-{
-    int i;
-
-	i = 0;
-    if (is_sign(argv[i]))
-        i++;
-    while (argv[i] && argv[i] == '0')
-        i++;
-    if (argv[i] != '\0')
-        return (0);
-    return (1);
-}
-
-/*coordinates checker functions; ensures that there are no duplicates (including 
-zero variations) and that all arguments are valid number values*/
-int	input_checks(char **argv)
-{
-	int	i;
-	int	num_zeros;
-
-	num_zeros = 0;
-	i = 1;
-	while (argv[i])
-	{
-		if (!number_check(argv[i]))
-			return (0);
-		num_zeros += zero_check(argv[i]);
-		i++;
-	}
-	if (num_zeros > 1)
-		return (0);
-	if (duplicate_check(argv))
-		return (0);
-	return (1);
 }

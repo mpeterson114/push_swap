@@ -3,3 +3,4 @@ a.out
 *.o
 *.a
 venv
+push_swap42tester
