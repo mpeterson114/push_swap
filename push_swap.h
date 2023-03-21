@@ -36,6 +36,7 @@ void    op_pa(t_stack **stack_a, t_stack **stack_b);
 void    op_pb(t_stack **stack_b, t_stack **stack_a);
 
 void	ft_putstr(char *str);
+int	ft_strlen(char *s);
 t_stack	*stack_last(t_stack *stack);
 t_stack	*stack_second_to_last(t_stack *stack);
 long int	ft_atoi(const char *str);
@@ -48,10 +49,10 @@ int	abs_val(int nb);
 
 int	is_digit(char c);
 int is_sign(char c);
-int	strcmp(const char *s1, const char *s2);
-int	input_checks(char **argv);
+int	input_checks(char *str);
+int  duplicate_check(t_stack *stack);
 
-t_stack	*fill_values(int argc, char **argv);
+void	fill_values(char *argv, t_stack **stack_a);
 void	assign_index(t_stack *stack_a, int stack_size);
 
 int	is_sorted(t_stack *stack);
@@ -73,6 +74,8 @@ void    find_cheapest(t_stack **stack_a, t_stack **stack_b);
 void    reorder(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
 
 void    big_sort(t_stack **stack_a, t_stack **stack_b);
+
+char	**ft_split(char *s, char c);
 
 //void print_list(t_stack **head);      ----->practice
 

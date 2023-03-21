@@ -3,27 +3,32 @@
 /*fills stack A with command line arguments entered. argv[i] char value 
 is converted to stack value int nb using atoi. nb value cannot exceed INT_MIN or INT_MAX. 
 A new node is created with nb as its value*/
-t_stack	*fill_values(int argc, char **argv)
+void	fill_values(char *argv, t_stack **stack_a)
 {
+	char **params;
 	long int    nb;
 	int	i;
-	t_stack *stack_a;
 
-	stack_a = NULL;
-	i = 1; 
-	nb = 0;
-	while (i < argc)
+	params = ft_split (argv, ' ');
+	i = 0; 
+	while (params[i])
 	{
-		nb = ft_atoi(argv[i]);
-		if (nb > INT_MAX || nb < INT_MIN)
-			error(&stack_a, NULL);
-		if (i == 1)
-			stack_a = stack_new((int)nb);
+		if (input_checks(params[i]))
+		{
+			nb = ft_atoi(params[i]);
+			if (nb > INT_MAX || nb < INT_MIN)
+				error(stack_a, NULL);
+			if (i == 0)
+				*stack_a = stack_new((int)nb);
+			else
+				stack_add_back(stack_a, stack_new((int)nb));
+		}
 		else
-			stack_add_back(&stack_a, stack_new((int)nb));
+			error(NULL, NULL);
+		free(params[i]);
 		i++;
 	}
-	return (stack_a);
+	free(params);
 }
 
 /*assigns an index to each stack element based on value. facilitates comparison 

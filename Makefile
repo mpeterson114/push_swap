@@ -19,6 +19,7 @@ SRCS = main.c \
 	positions.c \
 	cost.c \
 	reorder.c \
+	ft_split.c \
 
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra

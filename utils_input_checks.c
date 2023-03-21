@@ -18,7 +18,7 @@ int is_sign(char c)
 
 /*compares two strings by their ascii values. If strings are identical returns 0, 
 otherwise returns a non-zero number*/
-int	strcmp(const char *s1, const char *s2)
+/*int	strcmp(const char *s1, const char *s2)
 {
 	int i;
     int j;
@@ -41,4 +41,4 @@ int	strcmp(const char *s1, const char *s2)
         j++;
 	}
 	return ((unsigned char)s1[i] - (unsigned char)s2[j]);
-}
+}*/
