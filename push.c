@@ -1,30 +1,27 @@
 #include "push_swap.h"
 
+static void	push(t_stack **src, t_stack **dest)
+{
+	t_stack *temp; 
+
+    if (*src == NULL)
+		return ;
+	temp = (*src)->next;
+    (*src)->next = *dest; 
+	*dest = *src;
+    *src = temp; 
+}
 /*pushes element at top of stack B to the top of stack A*/
 void    op_pa(t_stack **stack_a, t_stack **stack_b)
 {
-    t_stack *temp; 
-
-    if (!*stack_b)
-		return ;
-	temp = (*stack_b)->next;
-    (*stack_b)->next = *stack_a; 
-	*stack_a = *stack_b;
-    *stack_b = temp; 
+    push(stack_b, stack_a);
     ft_putstr("pa\n");
 }
 
 /*pushes element at top of stack A to the top of stack B*/
 void    op_pb(t_stack **stack_b, t_stack **stack_a)
 {
-    t_stack *temp; 
-
-    if (!*stack_a)
-		return ;
-	temp = (*stack_a)->next;
-    (*stack_a)->next = *stack_b; 
-	*stack_b = *stack_a;
-    *stack_a = temp; 
+    push(stack_a, stack_b);
     ft_putstr("pb\n");
 }
 

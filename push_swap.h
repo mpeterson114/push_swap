@@ -36,7 +36,7 @@ void    op_pa(t_stack **stack_a, t_stack **stack_b);
 void    op_pb(t_stack **stack_b, t_stack **stack_a);
 
 void	ft_putstr(char *str);
-int	ft_strlen(char *s);
+size_t	ft_strlen(const char *s);
 t_stack	*stack_last(t_stack *stack);
 t_stack	*stack_second_to_last(t_stack *stack);
 long int	ft_atoi(const char *str);
@@ -49,7 +49,7 @@ int	abs_val(int nb);
 
 int	is_digit(char c);
 int is_sign(char c);
-int	input_checks(char *str);
+long	input_checks(char *str);
 int  duplicate_check(t_stack *stack);
 
 void	fill_values(char *argv, t_stack **stack_a);
@@ -63,7 +63,7 @@ void    sort_three(t_stack **stack_a);
 void	keep_three(t_stack **stack_a, t_stack **stack_b);
 
 void    assign_position(t_stack **stack);
-int smallest_i_position(t_stack *stack);
+int smallest_i_position(t_stack **stack);
 //int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos);
 void    assign_target_positions(t_stack **stack_a, t_stack **stack_b);
 
@@ -75,7 +75,7 @@ void    reorder(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
 
 void    big_sort(t_stack **stack_a, t_stack **stack_b);
 
-char	**ft_split(char *s, char c);
+char	**ft_split(const char *s, char c);
 
 //void print_list(t_stack **head);      ----->practice
 

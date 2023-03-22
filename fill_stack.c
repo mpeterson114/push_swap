@@ -5,30 +5,28 @@ is converted to stack value int nb using atoi. nb value cannot exceed INT_MIN or
 A new node is created with nb as its value*/
 void	fill_values(char *argv, t_stack **stack_a)
 {
-	char **params;
+	char **arguments;
 	long int    nb;
 	int	i;
 
-	params = ft_split (argv, ' ');
+	arguments = ft_split(argv, ' ');
 	i = 0; 
-	while (params[i])
+	while (arguments[i] != NULL)
 	{
-		if (input_checks(params[i]))
+		if (input_checks(arguments[i]))
 		{
-			nb = ft_atoi(params[i]);
+			nb = ft_atoi(arguments[i]);
 			if (nb > INT_MAX || nb < INT_MIN)
 				error(stack_a, NULL);
-			if (i == 0)
-				*stack_a = stack_new((int)nb);
 			else
-				stack_add_back(stack_a, stack_new((int)nb));
+				stack_add_back(stack_a, stack_new(nb));
 		}
 		else
 			error(NULL, NULL);
-		free(params[i]);
+		free(arguments[i]);
 		i++;
 	}
-	free(params);
+	free(arguments);
 }
 
 /*assigns an index to each stack element based on value. facilitates comparison 
@@ -40,16 +38,16 @@ void	assign_index(t_stack *stack_a, int stack_size)
 	t_stack *highest;
 	int value;
 
-	while (stack_size-- > 0)
+	while (--stack_size > 0)
 	{
-		value = INT_MIN;
 		temp = stack_a;
 		highest = NULL;
+		value = INT_MIN;
 		while (temp)
 		{
 			if (temp->value == INT_MIN && temp->index == 0)
 				temp->index = 1;
-			else if (temp->value > value && temp->index == 0)
+			if (temp->value > value && temp->index == 0)
 			{
 				value = temp->value;
 				highest = temp;

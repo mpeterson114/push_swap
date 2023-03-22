@@ -4,11 +4,13 @@ void    assign_cost(t_stack **stack_a, t_stack **stack_b)
 {
     int size_a;
     int size_b;
+    t_stack *temp_a;
     t_stack *temp_b;
 
-    size_a = stack_count(*stack_a);
-    size_b = stack_count(*stack_b);
+    temp_a = *stack_a;
     temp_b = *stack_b;
+    size_a = stack_count(temp_a);
+    size_b = stack_count(temp_b);
     while (temp_b)
     {
         temp_b->cost_b = temp_b->position;
@@ -32,7 +34,7 @@ void    find_cheapest(t_stack **stack_a, t_stack **stack_b)
     cheapest = INT_MAX;
     while (temp)
     {   
-        if (abs_val(temp->cost_a) + abs_val(temp->cost_b) < abs_val(cheapest))
+        if (abs_val(temp->cost_a) + abs_val(temp->cost_b) < cheapest)
         {
             cheapest = abs_val(temp->cost_a) + abs_val(temp->cost_b);
             cost_a = temp->cost_a;

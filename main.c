@@ -17,7 +17,7 @@ static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size)
 		op_sa(stack_a);
 	else if (stack_size == 3)
 		sort_three(stack_a);
-	else
+	else if (stack_size > 3 && !is_sorted(*stack_a))
 		big_sort(stack_a, stack_b);
 }
 
@@ -29,8 +29,6 @@ int	main(int argc, char **argv)
 	int	i;
 
 	i = 1;
-	if (argc < 2)
-		return (0);
 	stack_a = NULL;
 	stack_b = NULL;
 	while (i < argc)
