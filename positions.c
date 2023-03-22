@@ -15,37 +15,36 @@ void    assign_position(t_stack **stack)
     }
 }
 
-int smallest_i_position(t_stack *stack)
+int smallest_i_position(t_stack **stack)
 {
     t_stack *temp;
     int lowest_pos;
+    int lowest_i;
 
-    temp = stack;
-    assign_position(&stack);
+    temp = *stack;
+    lowest_i = INT_MAX;
+    assign_position(stack);
     lowest_pos = temp->position;
     while (temp)
     {
-        if (temp->index != 1)
-            temp = temp->next;
-        else if (temp->index == 1)
+        if (temp->index < lowest_i)
         {
+            lowest_i = temp->index;
             lowest_pos = temp->position;
-            break ;
         }
+        temp = temp->next;
     } 
     return (lowest_pos); 
 }
 
-static int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos)
+static int    find_targ_pos(t_stack **stack_a, int index_b, int target_index, int target_pos)
 {
-    int target_index;
     t_stack *temp;
 
     temp = *stack_a;
-    target_index = INT_MAX;
     while (temp)
     {
-        if (temp->index > (*stack_b)->index && temp->index < target_index)
+        if (temp->index > index_b && temp->index < target_index)
         {
             target_index = temp->index;
             target_pos = temp->position;
@@ -57,7 +56,7 @@ static int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos
     temp = *stack_a;
     while (temp)
     {
-        if (temp->index < (*stack_b)->index && temp->index < target_index)
+        if (temp->index < target_index)
         {
             target_index = temp->index;
             target_pos = temp->position;
@@ -78,11 +77,10 @@ void    assign_target_positions(t_stack **stack_a, t_stack **stack_b)
     target_position = 0;
     while (temp)
     {
-        target_position = find_targ_pos(stack_a, stack_b, target_position);
+        target_position = find_targ_pos(stack_a, temp->index, INT_MAX, target_position);
         temp->target_pos = target_position;
         temp = temp->next;
-    }
-    
+    } 
 }
 
 /*int main()

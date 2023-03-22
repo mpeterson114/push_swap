@@ -13,9 +13,9 @@ void	ft_putstr(char *str)
     }
 }
 
-int	ft_strlen(char *s)
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -52,8 +52,8 @@ long int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
-		i++;
+	//while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
+	//	i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -122,9 +122,9 @@ void	free_stacks(t_stack **stack)
 exits the program*/
 void	error(t_stack **stack_a, t_stack **stack_b)
 {
-	if (!stack_a || !*stack_a)
+	if (stack_a == NULL || *stack_a != NULL)
 		free_stacks(stack_a);
-	if (!stack_b || !*stack_b)
+	if (stack_b == NULL || *stack_b != NULL)
 		free_stacks(stack_b);
 	write(2, "Error\n", 6);
 	exit (1);
@@ -135,10 +135,10 @@ int	stack_count(t_stack *stack)
 {
 	int	count;
 
+	count = 0;
 	if (!stack)
 		return (0);
-	count = 1;
-	while (stack->next != NULL)
+	while (stack)
 	{
 		stack = stack->next;
 		count++;
@@ -149,6 +149,6 @@ int	stack_count(t_stack *stack)
 int	abs_val(int nb)
 {
 	if (nb < 0)
-		nb *= -1;
+		return (nb * -1);
 	return (nb);
 }

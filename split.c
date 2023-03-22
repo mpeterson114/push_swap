@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-static unsigned int	ft_wdcount(char *str, char c)
+static unsigned int	ft_wdcount(const char *str, char c)
 {
 	unsigned int	index;
 	unsigned int	count;
@@ -35,7 +35,7 @@ static unsigned int	ft_wdcount(char *str, char c)
 	return (count);
 }
 
-static char	*ft_wdcpy(char *str, int start, int end)
+static char	*ft_wdcpy(const char *str, int start, int end)
 {
 	unsigned int	i;
 	char			*word;
@@ -43,23 +43,25 @@ static char	*ft_wdcpy(char *str, int start, int end)
 	i = 0;
 	word = (char *)malloc((end - start + 1) * sizeof(char));
 	if (!word || !str)
-		return (0);
+		return (NULL);
 	while (start < end)
 		word[i++] = str[start++];
 	word[i] = '\0';
 	return (word);
 }
 
-char	**ft_split(char *s, char c)
+char	**ft_split(const char *s, char c)
 {
-	int			i;
-	int			j;
+	size_t			i;
+	size_t			j;
 	char			**strings;
 	int				index;
 
-	strings = (char **)malloc(((ft_wdcount(s, c)) + 1) * sizeof(char *));
-	if (!s || !strings)
-		return (0);
+	if (!s)
+		return (NULL);
+	strings = (char **)malloc((ft_wdcount(s, c) + 1) * sizeof(char *));
+	if (!strings)
+		return (NULL);
 	i = 0;
 	j = 0;
 	index = -1;

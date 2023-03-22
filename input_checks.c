@@ -1,17 +1,19 @@
 #include "push_swap.h"
 
 /*ensures that all arguments are valid number values; allows for + and -. If a valid number value returns 1, if not returns 0 */
-int	input_checks(char *str)
+long	input_checks(char *str)
 {
 	int i;
 
 	i = 0;
-    if (is_sign(str[i]) && str[i + 1] != '\0')
+    if (is_sign(str[i]) && (ft_strlen(str) > 1))
         i++;
-    while (str[i] && is_digit(str[i]))
-        i++;
-    if (!is_digit(str[i]) && str[i] != '\0')
-        return (0);
+    while (str[i] != '\0')
+	{
+		if (!is_digit(str[i]))
+			return (0);
+		i++;
+	}
     return (1);
 }
 

@@ -29,7 +29,7 @@ FICHERO=test_check.txt
 if [ -f "$FILE" ]; then
 	echo -n
 else
-	printf "${RED}PUSH_SWAP PROGRAM DOES NOT EXIST ${DEF_COLOR}\n";
+	printf "${RED}NO EXIST PUSH_SWAP PROGRAM ${DEF_COLOR}\n";
 	exit 0
 fi
 
