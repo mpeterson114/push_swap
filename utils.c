@@ -52,8 +52,6 @@ long int	ft_atoi(const char *str)
 	i = 0;
 	sign = 1;
 	result = 0;
-	//while ((str[i] == 32) || (str[i] >= 9 && str[i] <= 13))
-	//	i++;
 	if (str[i] == '+' || str[i] == '-')
 	{
 		if (str[i] == '-')
@@ -73,7 +71,7 @@ t_stack	*stack_new(int value)
 {
 	t_stack	*new;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
+	new = malloc(sizeof(t_stack));
 	if (!new)
 		return (NULL);
 	new->value = value;
@@ -146,7 +144,7 @@ int	stack_count(t_stack *stack)
 	return (count);
 }
 
-int	abs_val(int nb)
+long int	abs_val(long int nb)
 {
 	if (nb < 0)
 		return (nb * -1);

@@ -6,10 +6,10 @@ static void	push(t_stack **src, t_stack **dest)
 
     if (*src == NULL)
 		return ;
-	temp = (*src)->next;
-    (*src)->next = *dest; 
-	*dest = *src;
-    *src = temp; 
+	temp = *src;
+	*src = (*src)->next;
+    temp->next = *dest; 
+	*dest = temp;
 }
 /*pushes element at top of stack B to the top of stack A*/
 void    op_pa(t_stack **stack_a, t_stack **stack_b)

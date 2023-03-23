@@ -4,10 +4,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
-# include <stddef.h>
-
-# define INT_MAX 2147483647
-# define INT_MIN -2147483648
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -45,7 +42,7 @@ t_stack	*stack_new(int value);
 void	free_stacks(t_stack **stack);
 void	error(t_stack **stack_a, t_stack **stack_b);
 int	stack_count(t_stack *stack);
-int	abs_val(int nb);
+long int	abs_val(long int nb);
 
 int	is_digit(char c);
 int is_sign(char c);
@@ -62,9 +59,7 @@ void    sort_three(t_stack **stack_a);
 //int highest_index(t_stack *stack);
 void	keep_three(t_stack **stack_a, t_stack **stack_b);
 
-void    assign_position(t_stack **stack);
 int smallest_i_position(t_stack **stack);
-//int    find_targ_pos(t_stack **stack_a, t_stack **stack_b, int target_pos);
 void    assign_target_positions(t_stack **stack_a, t_stack **stack_b);
 
 void    assign_cost(t_stack **stack_a, t_stack **stack_b);
@@ -75,7 +70,7 @@ void    reorder(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
 
 void    big_sort(t_stack **stack_a, t_stack **stack_b);
 
-char	**ft_split(const char *s, char c);
+char	**ft_split(char const *s, char c);
 
 //void print_list(t_stack **head);      ----->practice
 

@@ -1,8 +1,8 @@
 #include "push_swap.h"
 
-/*fills stack A with command line arguments entered. argv[i] char value 
-is converted to stack value int nb using atoi. nb value cannot exceed INT_MIN or INT_MAX. 
-A new node is created with nb as its value*/
+/*Takes input (argv) as a string, splits it into an array of strings, checks 
+ if each string is valid according to input parameters and converts it to an 
+ integer. Adds it as a new element to the stack_a.*/
 void	fill_values(char *argv, t_stack **stack_a)
 {
 	char **arguments;
@@ -11,15 +11,14 @@ void	fill_values(char *argv, t_stack **stack_a)
 
 	arguments = ft_split(argv, ' ');
 	i = 0; 
-	while (arguments[i] != NULL)
+	while (arguments[i])
 	{
 		if (input_checks(arguments[i]))
 		{
 			nb = ft_atoi(arguments[i]);
 			if (nb > INT_MAX || nb < INT_MIN)
 				error(stack_a, NULL);
-			else
-				stack_add_back(stack_a, stack_new(nb));
+			stack_add_back(stack_a, stack_new(nb));
 		}
 		else
 			error(NULL, NULL);

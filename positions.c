@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    assign_position(t_stack **stack)
+static void    assign_position(t_stack **stack)
 {
     int pos;
     t_stack *temp;
@@ -37,7 +37,7 @@ int smallest_i_position(t_stack **stack)
     return (lowest_pos); 
 }
 
-static int    find_targ_pos(t_stack **stack_a, int index_b, int target_index, int target_pos)
+static int    find_target(t_stack **stack_a, int index_b, int target_index, int target_pos)
 {
     t_stack *temp;
 
@@ -49,7 +49,7 @@ static int    find_targ_pos(t_stack **stack_a, int index_b, int target_index, in
             target_index = temp->index;
             target_pos = temp->position;
         }
-        temp = temp->next; 
+        temp = temp->next;
     }
     if (target_index != INT_MAX)
         return (target_pos);
@@ -72,15 +72,33 @@ void    assign_target_positions(t_stack **stack_a, t_stack **stack_b)
     int target_position;
 
     temp = *stack_b;
+    target_position = 0;
     assign_position(stack_a);
     assign_position(stack_b);
-    target_position = 0;
     while (temp)
     {
-        target_position = find_targ_pos(stack_a, temp->index, INT_MAX, target_position);
+        target_position = find_target(stack_a, temp->index, INT_MAX, target_position);
         temp->target_pos = target_position;
         temp = temp->next;
-    } 
+    }
+    /*while (*stack_b)
+    {
+        printf("%d ", (*stack_b)->value);
+        printf("%d ", (*stack_b)->index);
+        printf("%d ", (*stack_b)->position);
+        printf("%d\n", (*stack_b)->target_pos);
+        printf("\n");
+        *stack_b = (*stack_b)->next;
+    }
+    printf("\n");
+    printf("\n");
+    while (*stack_a)
+    {
+        printf("%d ", (*stack_a)->value);
+        printf("%d ", (*stack_a)->index);
+        printf("%d\n", (*stack_a)->position);
+        *stack_a = (*stack_a)->next;
+    }*/ 
 }
 
 /*int main()

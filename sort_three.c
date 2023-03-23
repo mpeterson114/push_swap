@@ -1,4 +1,5 @@
 #include "push_swap.h"
+
 static int highest_index(t_stack *stack)
 {
     int index;
@@ -29,6 +30,6 @@ void    sort_three(t_stack **stack)
         op_ra(stack);
     else if ((*stack)->next->index == highest)
         op_rra(stack);
-    if ((*stack)->next->index < (*stack)->index)
+    if ((*stack)->index > (*stack)->next->index)
         op_sa(stack);
 }
