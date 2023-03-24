@@ -34,7 +34,7 @@ t_stack	*stack_last(t_stack *stack)
 /*finds second-to-last element in linked list*/
 t_stack	*stack_second_to_last(t_stack *stack)
 {
-	while (stack && stack->next != NULL && stack->next->next != NULL)
+	while (stack && stack->next && stack->next->next != NULL)
 		stack = stack->next;
 	return (stack);
 }
@@ -144,7 +144,7 @@ int	stack_count(t_stack *stack)
 	return (count);
 }
 
-long int	abs_val(long int nb)
+int	abs_val(int nb)
 {
 	if (nb < 0)
 		return (nb * -1);

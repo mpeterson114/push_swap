@@ -14,7 +14,6 @@ SRCS = main.c \
 	rev_rotate.c \
 	fill_stack.c \
 	input_checks.c \
-	utils_input_checks.c \
 	sort_three.c \
 	big_sort.c \
 	positions.c \

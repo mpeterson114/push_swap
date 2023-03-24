@@ -6,10 +6,10 @@ static void	push(t_stack **src, t_stack **dest)
 
     if (*src == NULL)
 		return ;
-	temp = *src;
-	*src = (*src)->next;
-    temp->next = *dest; 
-	*dest = temp;
+	temp = (*src)->next;
+	(*src)->next = *dest;
+    *dest = *src; 
+	*src = temp;
 }
 /*pushes element at top of stack B to the top of stack A*/
 void    op_pa(t_stack **stack_a, t_stack **stack_b)
@@ -19,7 +19,7 @@ void    op_pa(t_stack **stack_a, t_stack **stack_b)
 }
 
 /*pushes element at top of stack A to the top of stack B*/
-void    op_pb(t_stack **stack_b, t_stack **stack_a)
+void    op_pb(t_stack **stack_a, t_stack **stack_b)
 {
     push(stack_a, stack_b);
     ft_putstr("pb\n");
