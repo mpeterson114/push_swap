@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+//push all elements to stack_b aside from 3 that remain in stack_a
 void    keep_three(t_stack **stack_a, t_stack **stack_b)
 {
     int stack_a_count;
@@ -27,7 +27,8 @@ void    keep_three(t_stack **stack_a, t_stack **stack_b)
         pushed++;
     }
 }
-
+/*once all elements have been sorted and returned to stack_a, shifts stack_a until lowest value is
+at the top*/
 static void    shift_stack_a(t_stack **stack_a)
 {
     int stack_size;
@@ -52,7 +53,7 @@ static void    shift_stack_a(t_stack **stack_a)
         }    
     }      
 }
-
+/*sorting algorithm for stack larger than 3 elements*/
 void    big_sort(t_stack **stack_a, t_stack **stack_b)
 {
     keep_three(stack_a, stack_b);

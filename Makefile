@@ -8,6 +8,7 @@ MAGENTA =		\033[0;95m
 INCLUDE = push_swap.h
 SRCS = main.c \
 	utils.c \
+	stack_utils.c \
 	swap.c \
 	push.c \
 	rotate.c \

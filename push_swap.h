@@ -17,57 +17,54 @@ typedef struct s_stack
 	int	cost_b;
 	struct s_stack *next;
 }	t_stack;
-
+//operations
 void	op_sa(t_stack **stack_a);
 void	op_sb(t_stack **stack_b);
 void	op_ss(t_stack **stack_a, t_stack **stack_b);
-
 void    op_ra(t_stack **stack_a);
 void    op_rb(t_stack **stack_b);
 void    op_rr(t_stack **stack_a, t_stack **stack_b);
-
-void op_rra(t_stack **stack_a);
-void op_rrb(t_stack **stack_b);
-void op_rrr(t_stack **stack_a, t_stack **stack_b);
-
+void	op_rra(t_stack **stack_a);
+void	op_rrb(t_stack **stack_b);
+void	op_rrr(t_stack **stack_a, t_stack **stack_b);
 void    op_pa(t_stack **stack_a, t_stack **stack_b);
 void    op_pb(t_stack **stack_a, t_stack **stack_b);
 
+//utils
 void	ft_putstr(char *str);
 size_t	ft_strlen(const char *s);
+long int	ft_atoi(const char *str);
+int	abs_val(int nb);
+
+//stack utils
 t_stack	*stack_last(t_stack *stack);
 t_stack	*stack_second_to_last(t_stack *stack);
-long int	ft_atoi(const char *str);
 void	stack_add_back(t_stack **stack, t_stack *new);
 t_stack	*stack_new(int value);
 void	free_stacks(t_stack **stack);
 void	error(t_stack **stack_a, t_stack **stack_b);
 int	stack_count(t_stack *stack);
-int	abs_val(int nb);
 
+//input checks
 long	input_checks(char *str);
 int  duplicate_check(t_stack *stack);
 
+//split and initialization
+char	**ft_split(char const *s, char c);
 void	fill_values(char *argv, t_stack **stack_a);
 void	assign_index(t_stack *stack_a, int stack_size);
 
+//sorting
 int	is_sorted(t_stack *stack);
-
 void    sort_three(t_stack **stack_a);
-
-void	keep_three(t_stack **stack_a, t_stack **stack_b);
-
-int smallest_i_position(t_stack **stack);
-void    assign_target_positions(t_stack **stack_a, t_stack **stack_b);
-
-void    assign_cost(t_stack **stack_a, t_stack **stack_b);
-
-void    find_cheapest(t_stack **stack_a, t_stack **stack_b);
-
-void    reorder(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
-
 void    big_sort(t_stack **stack_a, t_stack **stack_b);
 
-char	**ft_split(char const *s, char c);
+//big sort fxns; >3 args
+void	keep_three(t_stack **stack_a, t_stack **stack_b);
+void    assign_target_positions(t_stack **stack_a, t_stack **stack_b);
+void    assign_cost(t_stack **stack_a, t_stack **stack_b);
+void    find_cheapest(t_stack **stack_a, t_stack **stack_b);
+void    reorder(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
+int	smallest_i_position(t_stack **stack);
 
 #endif

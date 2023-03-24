@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+/*assigns cost_a and cost_b values to each element in stack_b*/
 void    assign_cost(t_stack **stack_a, t_stack **stack_b)
 {
     t_stack *temp_a;
@@ -34,6 +34,8 @@ void    assign_cost(t_stack **stack_a, t_stack **stack_b)
     }*/
 }
 
+/*finds the stack_b element with the cheapest cost to move to stack_a, then moves the element to
+stack_a once found*/
 void    find_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
     t_stack *temp;
