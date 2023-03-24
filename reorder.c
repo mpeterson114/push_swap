@@ -3,17 +3,21 @@
 static void rev_rotate_both(t_stack **stack_a, t_stack **stack_b, int *cost_a, int *cost_b)
 {
     while (*cost_a < 0 && *cost_b < 0)
+    {
         (*cost_a)++;
         (*cost_b)++;
         op_rrr(stack_a, stack_b);
+    }
 }
 
 static void rotate_both(t_stack **stack_a, t_stack **stack_b, int *cost_a, int *cost_b)
 {
     while (*cost_a > 0 && *cost_b > 0)
+    {
         (*cost_a)--;
         (*cost_b)--;
         op_rr(stack_a, stack_b);
+    }  
 }
 
 static void a_only(t_stack **stack_a, int *cost_a)

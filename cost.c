@@ -2,10 +2,10 @@
 
 void    assign_cost(t_stack **stack_a, t_stack **stack_b)
 {
-    int size_a;
-    int size_b;
     t_stack *temp_a;
     t_stack *temp_b;
+    int size_a;
+    int size_b;
 
     temp_a = *stack_a;
     temp_b = *stack_b;
@@ -37,9 +37,9 @@ void    assign_cost(t_stack **stack_a, t_stack **stack_b)
 void    find_cheapest(t_stack **stack_a, t_stack **stack_b)
 {
     t_stack *temp;
+    int cheapest;
     int cost_a;
     int cost_b;
-    int cheapest;
 
     temp = *stack_b;
     cheapest = INT_MAX;
@@ -47,23 +47,12 @@ void    find_cheapest(t_stack **stack_a, t_stack **stack_b)
     {   
         if (abs_val(temp->cost_a) + abs_val(temp->cost_b) < abs_val(cheapest))
         {
-            cheapest = abs_val(temp->cost_a) + abs_val(temp->cost_b);
+            cheapest = abs_val(temp->cost_b) + abs_val(temp->cost_a);
             cost_a = temp->cost_a;
             cost_b = temp->cost_b;
-        } 
+        }
         temp = temp->next;
     }
-    /*while (*stack_b)
-    {
-        printf("%d ", (*stack_b)->value);
-        printf("%d ", (*stack_b)->index);
-        printf("%d ", (*stack_b)->position);
-        printf("%d ", (*stack_b)->target_pos);
-        printf("%d ", (*stack_b)->cost_a);
-        printf("%d\n", (*stack_b)->cost_b);
-        printf("\n");
-        *stack_b = (*stack_b)->next;
-    }*/
     reorder(stack_a, stack_b, cost_a, cost_b);
 }
 

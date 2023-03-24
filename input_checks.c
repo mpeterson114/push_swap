@@ -6,11 +6,11 @@ long	input_checks(char *str)
 	int i;
 
 	i = 0;
-    if (is_sign(str[i]) && (ft_strlen(str) > 1))
+    if ((str[i] == '-' || str[i] == '+') && (ft_strlen(str) > 1))
         i++;
     while (str[i] != '\0')
 	{
-		if (!is_digit(str[i]))
+		if (str[i] < '0' || str[i] > '9')
 			return (0);
 		i++;
 	}

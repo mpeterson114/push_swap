@@ -2,11 +2,11 @@
 
 static void    assign_position(t_stack **stack)
 {
-    int pos;
     t_stack *temp;
+    int pos;
 
-    pos = 0;
     temp = *stack;
+    pos = 0;
     while (temp)
     {
         temp->position = pos;
@@ -72,9 +72,9 @@ void    assign_target_positions(t_stack **stack_a, t_stack **stack_b)
     int target_position;
 
     temp = *stack_b;
-    target_position = 0;
     assign_position(stack_a);
     assign_position(stack_b);
+    target_position = 0;
     while (temp)
     {
         target_position = find_target(stack_a, temp->index, INT_MAX, target_position);

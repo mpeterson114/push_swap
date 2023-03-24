@@ -5,6 +5,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
+# include <stddef.h>
 
 typedef struct s_stack
 {
@@ -30,7 +31,7 @@ void op_rrb(t_stack **stack_b);
 void op_rrr(t_stack **stack_a, t_stack **stack_b);
 
 void    op_pa(t_stack **stack_a, t_stack **stack_b);
-void    op_pb(t_stack **stack_b, t_stack **stack_a);
+void    op_pb(t_stack **stack_a, t_stack **stack_b);
 
 void	ft_putstr(char *str);
 size_t	ft_strlen(const char *s);
@@ -42,10 +43,8 @@ t_stack	*stack_new(int value);
 void	free_stacks(t_stack **stack);
 void	error(t_stack **stack_a, t_stack **stack_b);
 int	stack_count(t_stack *stack);
-long int	abs_val(long int nb);
+int	abs_val(int nb);
 
-int	is_digit(char c);
-int is_sign(char c);
 long	input_checks(char *str);
 int  duplicate_check(t_stack *stack);
 
@@ -56,7 +55,6 @@ int	is_sorted(t_stack *stack);
 
 void    sort_three(t_stack **stack_a);
 
-//int highest_index(t_stack *stack);
 void	keep_three(t_stack **stack_a, t_stack **stack_b);
 
 int smallest_i_position(t_stack **stack);
@@ -71,7 +69,5 @@ void    reorder(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b);
 void    big_sort(t_stack **stack_a, t_stack **stack_b);
 
 char	**ft_split(char const *s, char c);
-
-//void print_list(t_stack **head);      ----->practice
 
 #endif
