@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+//checks that stack values are in order from smallest to largest
 int	is_sorted(t_stack *stack)
 {
 	while (stack->next != NULL)
@@ -10,7 +10,8 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1);
 }
-
+/*coordinating function for sorting algorithms depending on stack size. Evaluates based on stack sizes of
+2, 3 or greater than 3 elements*/
 static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size)
 {
 	if ((stack_size == 2) && !is_sorted(*stack_a))

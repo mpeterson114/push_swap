@@ -1,5 +1,5 @@
 #include "push_swap.h"
-
+/*assigns a position to each element of the stack, starting with 0*/
 static void    assign_position(t_stack **stack)
 {
     t_stack *temp;
@@ -15,6 +15,8 @@ static void    assign_position(t_stack **stack)
     }
 }
 
+/*locates the position at which the smallest index in the stack can be found. Useful for shifting function
+at end of big_sort algorithm*/
 int smallest_i_position(t_stack **stack)
 {
     t_stack *temp;
@@ -37,6 +39,7 @@ int smallest_i_position(t_stack **stack)
     return (lowest_pos); 
 }
 
+/*finds the best target position in stack_a for a given index of an element in stack_b*/
 static int    find_target(t_stack **stack_a, int index_b, int target_index, int target_pos)
 {
     t_stack *temp;
@@ -65,7 +68,7 @@ static int    find_target(t_stack **stack_a, int index_b, int target_index, int 
     }
     return (target_pos);
 }
-
+/*assigns target positions to each element of stack_b*/
 void    assign_target_positions(t_stack **stack_a, t_stack **stack_b)
 {
     t_stack *temp;
