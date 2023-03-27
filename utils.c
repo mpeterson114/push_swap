@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 08:59:02 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/03/27 08:59:03 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/03/27 09:55:44 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@
 void	ft_putstr(char *str)
 {
 	int	i;
-	
+
 	i = 0;
-    while (str[i] != '\0')
-    {
-        write(1, &str[i], 1);
-        i++;
-    }
+	while (str[i] != '\0')
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
 }
+
 /*finds length of a char string*/
 size_t	ft_strlen(const char *s)
 {
@@ -32,15 +33,15 @@ size_t	ft_strlen(const char *s)
 	i = 0;
 	while (s[i] != '\0')
 		i++;
-	return(i);
+	return (i);
 }
 
 /*converts character to int value; used to fill stack_a with 
 command line arguments*/
 long int	ft_atoi(const char *str)
 {
-	int	i;
-	int	sign;
+	int			i;
+	int			sign;
 	long int	result;
 
 	if (str == NULL)

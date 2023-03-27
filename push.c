@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 08:58:33 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/03/27 08:58:34 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/03/27 09:33:15 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,28 @@
 
 static void	push(t_stack **src, t_stack **dest)
 {
-	t_stack *temp; 
+	t_stack	*temp;
 
-    if (*src == NULL)
+	if (*src == NULL)
 		return ;
 	temp = (*src)->next;
 	(*src)->next = *dest;
-    *dest = *src; 
+	*dest = *src;
 	*src = temp;
 }
+
 /*pushes element at top of stack B to the top of stack A*/
-void    op_pa(t_stack **stack_a, t_stack **stack_b)
+void	op_pa(t_stack **stack_a, t_stack **stack_b)
 {
-    push(stack_b, stack_a);
-    ft_putstr("pa\n");
+	push(stack_b, stack_a);
+	ft_putstr("pa\n");
 }
 
 /*pushes element at top of stack A to the top of stack B*/
-void    op_pb(t_stack **stack_a, t_stack **stack_b)
+void	op_pb(t_stack **stack_a, t_stack **stack_b)
 {
-    push(stack_a, stack_b);
-    ft_putstr("pb\n");
+	push(stack_a, stack_b);
+	ft_putstr("pb\n");
 }
 
 /*int main(void)

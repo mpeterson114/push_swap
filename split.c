@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 12:55:42 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/03/27 08:58:50 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/03/27 09:58:53 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,8 @@ char	**ft_split(const char *s, char c)
 	char			**strings;
 	int				index;
 
-	if (!s)
-		return (NULL);
 	strings = (char **)malloc((ft_wdcount(s, c) + 1) * sizeof(char *));
-	if (!strings)
+	if (!s || !strings)
 		return (NULL);
 	i = 0;
 	j = 0;
