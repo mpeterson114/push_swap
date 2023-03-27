@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   positions.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/27 08:58:28 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/03/27 08:58:29 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 /*assigns a position to each element of the stack, starting with 0*/
 static void    assign_position(t_stack **stack)
@@ -84,24 +96,6 @@ void    assign_target_positions(t_stack **stack_a, t_stack **stack_b)
         temp->target_pos = target_position;
         temp = temp->next;
     }
-    /*while (*stack_b)
-    {
-        printf("%d ", (*stack_b)->value);
-        printf("%d ", (*stack_b)->index);
-        printf("%d ", (*stack_b)->position);
-        printf("%d\n", (*stack_b)->target_pos);
-        printf("\n");
-        *stack_b = (*stack_b)->next;
-    }
-    printf("\n");
-    printf("\n");
-    while (*stack_a)
-    {
-        printf("%d ", (*stack_a)->value);
-        printf("%d ", (*stack_a)->index);
-        printf("%d\n", (*stack_a)->position);
-        *stack_a = (*stack_a)->next;
-    }*/ 
 }
 
 /*int main()
