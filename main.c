@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/27 08:58:24 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/03/27 08:58:25 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 //checks that stack values are in order from smallest to largest
 int	is_sorted(t_stack *stack)

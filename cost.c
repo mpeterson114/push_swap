@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cost.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/27 08:58:02 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/03/27 08:58:03 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 /*assigns cost_a and cost_b values to each element in stack_b*/
 void    assign_cost(t_stack **stack_a, t_stack **stack_b)
@@ -21,17 +33,6 @@ void    assign_cost(t_stack **stack_a, t_stack **stack_b)
             temp_b->cost_a = (size_a - temp_b->target_pos) * -1;
         temp_b = temp_b->next; 
     }
-    /*while (*stack_b)
-    {
-        printf("%d ", (*stack_b)->value);
-        printf("%d ", (*stack_b)->index);
-        printf("%d ", (*stack_b)->position);
-        printf("%d ", (*stack_b)->target_pos);
-        printf("%d ", (*stack_b)->cost_a);
-        printf("%d\n", (*stack_b)->cost_b);
-        printf("\n");
-        *stack_b = (*stack_b)->next;
-    }*/
 }
 
 /*finds the stack_b element with the cheapest cost to move to stack_a, then moves the element to

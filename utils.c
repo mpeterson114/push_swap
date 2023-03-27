@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/27 08:59:02 by mpeterso          #+#    #+#             */
+/*   Updated: 2023/03/27 08:59:03 by mpeterso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /*writes character string to standard output*/
@@ -12,7 +24,7 @@ void	ft_putstr(char *str)
         i++;
     }
 }
-
+/*finds length of a char string*/
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -50,6 +62,7 @@ long int	ft_atoi(const char *str)
 	return (result * sign);
 }
 
+/*converts an integer to its absolute value if negative*/
 int	abs_val(int nb)
 {
 	if (nb < 0)
