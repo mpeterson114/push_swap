@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 08:58:59 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/03/27 08:59:00 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/03/27 09:52:23 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	swap(t_stack **stack)
 	t_stack	*temp;
 
 	if (!*stack || (*stack)->next == NULL)
-   		return ;
+		return ;
 	temp = *stack;
 	*stack = (*stack)->next;
 	temp->next = (*stack)->next;

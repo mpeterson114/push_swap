@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 08:58:19 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/03/27 08:58:20 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:04:38 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@
  integer. Adds it as a new element to the stack_a.*/
 void	fill_values(char *argv, t_stack **stack_a)
 {
-	char **arguments;
-	long int    nb;
-	int	i;
+	char		**arguments;
+	long int	nb;
+	int			i;
 
 	arguments = ft_split(argv, ' ');
-	i = 0; 
+	i = 0;
 	while (arguments[i])
 	{
 		if (input_checks(arguments[i]))
@@ -45,9 +45,9 @@ and ordering of stack elements during sorting as comparing
 actual values may be more complicated if not adjacent*/
 void	assign_index(t_stack *stack_a, int stack_size)
 {
-	t_stack *temp;
-	t_stack *highest;
-	int value;
+	t_stack	*temp;
+	t_stack	*highest;
+	int		value;
 
 	while (--stack_size > 0)
 	{

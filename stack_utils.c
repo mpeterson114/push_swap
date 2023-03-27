@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 08:58:56 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/03/27 08:58:57 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:04:07 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_stack	*stack_new(int value)
 /*adds new node to end of linked list*/
 void	stack_add_back(t_stack **stack, t_stack *new)
 {
-	t_stack *temp;
+	t_stack	*temp;
 
 	if (!new)
 		return ;
@@ -60,34 +60,6 @@ void	stack_add_back(t_stack **stack, t_stack *new)
 	}
 	temp = stack_last(*stack);
 	temp->next = new;
-}
-
-/*used to free both stacks a and b*/
-void	free_stacks(t_stack **stack)
-{
-	t_stack *temp;
-
-	if (!stack || !*stack)
-		return ;
-	while (*stack)
-	{
-		temp = (*stack)->next;
-		free(*stack);
-		*stack = temp;
-	}
-	*stack = NULL;
-}
-
-/*frees both stacks, writes "Error" message to standard error and 
-exits the program*/
-void	error(t_stack **stack_a, t_stack **stack_b)
-{
-	if (stack_a == NULL || *stack_a != NULL)
-		free_stacks(stack_a);
-	if (stack_b == NULL || *stack_b != NULL)
-		free_stacks(stack_b);
-	write(2, "Error\n", 6);
-	exit (1);
 }
 
 /*finds number of elements in a stack*/

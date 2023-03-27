@@ -6,7 +6,7 @@
 /*   By: mpeterso <mpeterso@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 08:58:24 by mpeterso          #+#    #+#             */
-/*   Updated: 2023/03/27 08:58:25 by mpeterso         ###   ########.fr       */
+/*   Updated: 2023/03/27 10:03:10 by mpeterso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,10 @@ int	is_sorted(t_stack *stack)
 	}
 	return (1);
 }
-/*coordinating function for sorting algorithms depending on stack size. Evaluates based on stack sizes of
-2, 3 or greater than 3 elements*/
-static void	push_swap(t_stack **stack_a, t_stack **stack_b, int	stack_size)
+
+/*coordinating function for sorting algorithms depending on stack size. 
+Evaluates based on stack sizes of 2, 3 or greater than 3 elements*/
+static void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 {
 	if ((stack_size == 2) && !is_sorted(*stack_a))
 		op_sa(stack_a);
@@ -39,7 +40,7 @@ int	main(int argc, char **argv)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	int		stack_size;
-	int	i;
+	int		i;
 
 	if (argc < 2)
 		return (0);
@@ -56,14 +57,7 @@ int	main(int argc, char **argv)
 	stack_size = stack_count(stack_a);
 	assign_index(stack_a, stack_size + 1);
 	push_swap(&stack_a, &stack_b, stack_size);
-	/*while (stack_a)
-	{
-		printf("%d ", stack_a->value);
-		printf("%d\n", stack_a->index);
-		printf ("\n");
-		stack_a = stack_a->next;
-	}*/
 	free_stacks(&stack_a);
 	free_stacks(&stack_b);
-    return 0;
+	return (0);
 }
