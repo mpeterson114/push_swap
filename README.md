@@ -6,5 +6,18 @@ types of algorithms and choose the most appropriate solution (out of many) for a
 optimized data sorting.
 
 ## Usage
-Clone the repository:
+Clone the repository using the following command:
 ```
+git clone git@github.com:mpeterson114/push_swap.git
+```
+then enter into the cloned directory and run the command ```make``` to compile.
+You can then run the program with the following:
+```
+./push_swap <numbers of your choice>
+```
+with any range or number of values passed as arguments, positive or negative, as long as there are no duplicates. For example:
+```
+./push_swap -4 2147483647 0 22 892 -2147483648
+```
+To test with a larger range or number of values, you can use a random number generator like the 
+
