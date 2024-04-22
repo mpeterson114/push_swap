@@ -1,11 +1,11 @@
-# Push_Swap 🧮
-## Summary
+# Push_Swap 🧮  
+## 📋 Summary
 Push_swap is an algorithm project in which we are to sort data in ascending order on a stack, with a limited set of instructions, using
 the lowest possible number of actions. To succeed you’ll have to manipulate various
 types of algorithms and choose the most appropriate solution (out of many) for an
 optimized data sorting.
 
-## Rules
+## 📌 Rules
 The game is composed of 2 stacks, Stack A and Stack B.
 
 To start with:
@@ -30,7 +30,7 @@ To do this, the following operations are available:
 | rrr                   | rra and rrb at the same time.                                                                     |
 
 
-## Usage
+## ⚙️ Usage
 Clone the repository using the following command:
 ```
 git clone git@github.com:mpeterson114/push_swap.git
